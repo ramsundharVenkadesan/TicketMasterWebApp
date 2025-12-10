@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g7*@yxm0p%f!85#r04kxwfg6aq(#f+e(n@fs2edanglzlw&=&0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True # Specify an identifier and assign it true when no value is assigned to the environment variable
+DEBUG = False # Specify an identifier and assign it true when no value is assigned to the environment variable
 
 ALLOWED_HOSTS = [
     # getenv("APP_HOST") # A function to retrieve an environment variable
