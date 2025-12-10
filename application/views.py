@@ -73,3 +73,12 @@ class SavedEvents(ListView):
         return base_query.all()
 
 
+class DeleteEvent(View):
+    def post(self, request, event_id):
+        try:
+            event = Event.objects.get(event_id=event_id)
+            event.delete()
+        except Event.DoesNotExist:
+            pass
+        return HttpResponseRedirect(reverse("favorites"))
+

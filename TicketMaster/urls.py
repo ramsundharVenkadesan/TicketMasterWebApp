@@ -14,10 +14,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
-from django.urls import path, include
+from django.contrib import admin # Admin controller
+from django.urls import path, include # Include other applications
+from django.conf.urls.static import static # The static helper function
+from django.conf import settings # Settings module imported from configuration package
 
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('application.urls'))
-]
+urlpatterns = [ # URL patterns to include various applications
+    path('admin/', admin.site.urls), # Admin path
+    path('', include('application.urls')) # Application path
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Serve static files from the static-files folder

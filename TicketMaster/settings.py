@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from os import getenv # Get the value of the environment variable
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g7*@yxm0p%f!85#r04kxwfg6aq(#f+e(n@fs2edanglzlw&=&0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True # Specify an identifier and assign it true when no value is assigned to the environment variable
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # getenv("APP_HOST") # A function to retrieve an environment variable
+] # All domains that should be able to send requests to this application
 
 
 # Application definition
@@ -116,7 +119,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/' # By-Default Django will look for folders named static in application folders to include
+
+STATIC_ROOT = BASE_DIR / 'staticfiles' # Automatically collect all the static files from different parts of the project to move them into the folder
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

@@ -12,7 +12,10 @@ class Search(forms.ModelForm):
                            widget=forms.TextInput(attrs={
                                "class":"form-control",
                                "placeholder":"Type to search by city"
-                           }))
+                           }),
+                           error_messages={
+                               "required": "Enter a city!"
+                           })
 
     class Meta:
         model = Event
