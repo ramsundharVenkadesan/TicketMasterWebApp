@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-g7*@yxm0p%f!85#r04kxwfg6aq(#f+e(n@fs2edanglzlw&=&0
 DEBUG = False # Specify an identifier and assign it true when no value is assigned to the environment variable
 
 ALLOWED_HOSTS = [
-    # getenv("APP_HOST") # A function to retrieve an environment variable
+    "ramven.pythonanywhere.com" # A function to retrieve an environment variable
 ] # All domains that should be able to send requests to this application
 
 
